@@ -1,0 +1,42 @@
+{
+  "cpu": "512",
+  "executionRoleArn": "arn:aws:iam::${AWS_ACCOUNT_ID}:role/linkcheckbot-ec2-role",
+  "family": "linkcheckbot",
+  "memory": "1024",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "containerDefinitions": [
+    {
+      "essential": true,
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/linkcheckbot",
+          "awslogs-region": "${AWS_REGION}",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
+      "name": "linkcheckbot",
+      "secrets": [
+        {
+          "name": "REDDIT_CLIENT_ID",
+          "valueFrom": "linkcheckbot-reddit-client-id"
+        },
+        {
+          "name": "REDDIT_CLIENT_SECRET",
+          "valueFrom": "linkcheckbot-reddit-client-secret"
+        },
+        {
+          "name": "REDDIT_USERNAME",
+          "valueFrom": "linkcheckbot-reddit-username"
+        },
+        {
+          "name": "REDDIT_PASSWORD",
+          "valueFrom": "linkcheckbot-reddit-password"
+        }
+      ]
+    }
+  ]
+}
