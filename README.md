@@ -46,20 +46,20 @@ It will report back its findings in a reply to your comment.
 
 You can modify LinkCheckBot's behaviour in the following ways:
 
-* `!linkcheckbot help!` will reply with this help information.
-* `!linkcheckbot summary!` will provide an overview of its findings rather than
+* `!linkcheck help!` will reply with this help information.
+* `!linkcheck summary!` will provide an overview of its findings rather than
   the full report.
-* `!linkcheckbot details!` will provide the full report.
+* `!linkcheck details!` will provide the full report.
   This is currently the default behaviour, but this may change in future.
-* `!linkcheckbot this https://example.com!` will analyse the link following the
+* `!linkcheck this https://example.com!` will analyse the link following the
   `this` keyword rather than finding links in the parent comment/post.
   If a comment or post contains multiple links, this may be more convenient if
   you only care to know about one of them.  
   LinkCheckBot also supports using `summary` and `details` with `this`,
   although `this` and the link must come first:
-  * **Correct** ✅: `!linkcheckbot this https://example.com summary!`
-  * **Incorrect** ❌: `!linkcheckbot summary this https://example.com!`
-  * **Incorrect** ❌: `!linkcheckbot this details https://example.com!`
+  * **Correct** ✅: `!linkcheck this https://example.com summary!`
+  * **Incorrect** ❌: `!linkcheck summary this https://example.com!`
+  * **Incorrect** ❌: `!linkcheck this details https://example.com!`
 
 LinkCheckBot works by simulating what happens when you click the link, using a
 sandboxed browser in headless mode.
